@@ -298,7 +298,7 @@ def edit_image(inp, out, edits):
             changed = edit_datadir(datadir, out_tag, edits)
             if changed:
                 outfile = os.path.realpath(outputfile)
-                cmd = "cd {datadir} && tar cf {outfile} ."
+                cmd = "cd {datadir} && tar czf {outfile} ."
                 sh(cmd.format(**locals()))
                 cmd = "{docker} load -i {outputfile}"
                 sh(cmd.format(**locals()))
